@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PhotoService } from '../services/photo.service';
 
 @Component({
   selector: 'app-tab1',
@@ -8,6 +9,17 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+
+  showImages: boolean = false;
+
+  constructor(public photoService: PhotoService) {}
+
+  toggleImages() {
+    this.showImages = !this.showImages;
+  }
+
+  ionViewWillEnter() {
+    this.photoService.loadSaved();
+  }
 
 }
