@@ -80,7 +80,7 @@ private async savePicture(photo: Photo) {
     const capturedPhoto=await Camera.getPhoto({
       resultType:CameraResultType.Uri,
       source:CameraSource.Camera,
-      quality:100
+      quality:50
     });
 
     const savedImageFile = await this.savePicture(capturedPhoto)
